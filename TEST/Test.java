@@ -1,6 +1,7 @@
 /**
 **Rokas Leskevicius
 **First problem to be solved on SPOJ
+**From http://www.spoj.com/problems/TEST/
 */
 
 //Scanner to read the input from console
