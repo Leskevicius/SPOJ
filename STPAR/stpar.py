@@ -1,4 +1,8 @@
 
+# Rokas Leskevicius
+# Twelth problem to be solved on SPOJ
+# From http://www.spoj.com/problems/STPAR/
+
 
 
 def weird_sort(mylist = []):
