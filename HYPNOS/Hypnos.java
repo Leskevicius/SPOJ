@@ -10,10 +10,8 @@ import java.util.ArrayList;
 class Hypnos {
   public static void main( String[] args ) {
     Scanner sc = new Scanner( System.in );
-    ArrayList<Integer> seq = new ArrayList<Integer>();
     String num = sc.next();
-
-    System.out.println(getSquaredDigits(num));
+    System.out.println(isItHappy(num));
   }
 
   public static int getSquaredDigits( final String value ) {
@@ -24,7 +22,30 @@ class Hypnos {
     }
     return newVal;
   }
-  public static bool checkIfRepeating( final ArrayList<Integer> list ) {
-
+  public static boolean checkIfRepeating( final ArrayList<Integer> list ) {
+    int checkValue = list.get(list.size()-1);
+    for ( int i = list.size() - 2; i >= 0; i-- ) {
+      if ( list.get(i) == checkValue ) {
+        return true;
+      }
+    }
+    return false;
+  }
+  public static int isItHappy( final String value ) {
+    String testVal = value;
+    ArrayList<Integer> seq = new ArrayList<Integer>();
+    seq.add( Integer.parseInt( testVal ) );
+    while ( true ) {
+      int currentValue = getSquaredDigits( testVal );
+      if ( currentValue == 1 ) {
+        return seq.size();
+      } else {
+        seq.add( currentValue );
+        testVal = new Integer( currentValue ).toString();
+      }
+      if ( checkIfRepeating( seq ) ) {
+        return -1;
+      }
+    }
   }
 }
